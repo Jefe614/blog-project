@@ -1,0 +1,23 @@
+{% extends 'blog/base.html' %} {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create</title>
+</head>
+
+<body>
+    {% block content %}
+    <h1>Create Post</h1>
+    <h2>Create a unique and beautiful blog easily.</h2>
+    <form method="post">
+        {% csrf_token %} {{ form.as_p }}
+        <button type="submit">Create</button>
+    </form>
+    {% endblock %}
+
+</body>
+
+</html>

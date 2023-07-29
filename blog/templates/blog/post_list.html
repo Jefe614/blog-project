@@ -1,0 +1,29 @@
+{% extends 'blog/base.html' %} {% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Posts</title>
+</head>
+
+<body>
+
+    {% block content %}
+    <h1>Blog Posts</h1>
+    <h2>Publish your passions, your way</h2>
+    {% for post in posts %}
+    <div class="post">
+        <h2><a href="{% url 'blog:post_detail' post.pk %}">{{ post.title }}</a></h2>
+        <p>Publication Date: {{ post.publication_date }}</p>
+
+    </div>
+    {% empty %}
+    <p>No blog posts available.</p>
+    {% endfor %} {% endblock %}
+
+</body>
+
+</html>
